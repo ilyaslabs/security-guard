@@ -1,7 +1,6 @@
 package io.github.ilyaslabs.foodstack.security.guard;
 
 import io.github.ilyaslabs.foodstack.security.guard.annotation.Secured;
-import org.bson.types.ObjectId;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -41,10 +40,8 @@ class TestSecuredAnnotation {
 
     /**
      * Tests whether secured endpoints are not accessible from outside without appropriate authorization.
-     *
      * Specifically, it simulates an external request to the secured endpoint with headers mimicking
      * an unauthorized external call and verifies that the response status is HTTP 403 Forbidden.
-     *
      * The test ensures that @Secured endpoints, by design, protect sensitive services from being accessed
      * externally, enforcing the authorization constraints defined in the system.
      *
@@ -54,8 +51,7 @@ class TestSecuredAnnotation {
     void testIfSecuredEndpointsAreNotAccessibleFromOutside() throws Exception {
 
         mockMvc.perform(get("/secured")
-                        .header(SecurityHeaders.X_SCOPES.getName(), SecurityHeaders.X_API_GATEWAY.getName())
-                        .header(SecurityHeaders.X_USER_ID.getName(), new ObjectId().toHexString())
+                        .header(SecurityHeaders.X_API_GATEWAY.getName(), "true")
                 )
                 .andExpect(status().isForbidden());
 
@@ -64,11 +60,11 @@ class TestSecuredAnnotation {
     /**
      * Tests whether non-secured endpoints are accessible from outside without requiring any
      * specific authorization or security headers.
-     *
+     * <p>
      * Specifically, the test simulates an external request to an unsecured endpoint and
      * verifies that the response status is HTTP 200 OK, confirming that the endpoint is
      * publicly accessible as intended.
-     *
+     * <p>
      * The test ensures that endpoints without the @Secured annotation allow unrestricted
      * external access, per the expected system behavior.
      *

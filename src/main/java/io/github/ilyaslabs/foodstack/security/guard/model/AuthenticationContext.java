@@ -1,42 +1,60 @@
 package io.github.ilyaslabs.foodstack.security.guard.model;
 
-import io.github.ilyaslabs.foodstack.security.guard.SecurityHeaders;
 import org.bson.types.ObjectId;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import java.util.List;
 
 /**
- *
- * @author Muhammad Ilyas (m.ilyas@live.com)
+ * Represents the authentication context for a user within the application.
+ * This record encapsulates essential security-related details required during
+ * request processing, such as the user's ID, their granted authorities,
+ * and the source of the call (gateway or internal).
+ * The class is immutable, designed for thread-safety, and is used to provide
+ * consistent authentication and authorization information across the system.
+ * Components:
+ * - userId: The unique identifier of the authenticated user.
+ * - scopes: A list of authorities granted to the user for access control.
+ * - isGatewayCall: A flag indicating whether the request originated from an API Gateway.
  */
 public record AuthenticationContext(
         ObjectId userId,
-        List<SimpleGrantedAuthority> scopes
+        List<SimpleGrantedAuthority> scopes,
+        Boolean isGatewayCall
 ) {
 
     /**
-     * Checks if the current request is an internal call by verifying
-     * if the necessary authority is present in the scopes.
+     * Normalizes scopes and gateway flag for context
+     */
+    public AuthenticationContext {
+        if (scopes == null) {
+            scopes = List.of();
+        }
+
+        if (isGatewayCall == null) {
+            isGatewayCall = true;
+        }
+    }
+
+    /**
+     * Determines if the current request is an internal call.
+     * An internal call is identified as one that is not external,
+     * meaning it does not originate from an API Gateway.
      *
-     * @return true if the current request is identified as an internal call
-     * (based on the presence of the `X-API-GATEWAY` authority in the scopes),
-     * otherwise false.
+     * @return true if the current request is an internal call; false otherwise.
      */
     public boolean isInternalCall() {
         return !isExternalCall();
     }
 
     /**
-     * Determines if the current request is an external call.
-     * An external call is identified by the presence of the
-     * `X-API-GATEWAY` authority in the provided scopes.
+     * Checks if the current request is an external call.
+     * An external call is identified as one originating from an API Gateway.
      *
-     * @return true if the `X-API-GATEWAY` authority is present
-     * in the scopes, indicating an external call; false otherwise.
+     * @return true if the current request is an external call; false otherwise.
      */
     public boolean isExternalCall() {
-        return scopes.contains(new SimpleGrantedAuthority(SecurityHeaders.X_API_GATEWAY.getName()));
+        return isGatewayCall;
     }
 
 }
