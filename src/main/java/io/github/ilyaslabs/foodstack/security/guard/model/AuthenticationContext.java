@@ -12,10 +12,10 @@ import java.util.List;
  * and the source of the call (gateway or internal).
  * The class is immutable, designed for thread-safety, and is used to provide
  * consistent authentication and authorization information across the system.
- * Components:
- * - userId: The unique identifier of the authenticated user.
- * - scopes: A list of authorities granted to the user for access control.
- * - isGatewayCall: A flag indicating whether the request originated from an API Gateway.
+ *
+ * @param userId The unique identifier of the authenticated user.
+ * @param scopes A list of authorities granted to the user for access control.
+ * @param isGatewayCall A flag indicating whether the request originated from an API Gateway.
  */
 public record AuthenticationContext(
         ObjectId userId,

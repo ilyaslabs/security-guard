@@ -16,8 +16,12 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import java.io.IOException;
 
 /**
- *
- * @author Muhammad Ilyas (m.ilyas@live.com)
+ * Configures security settings for a microservice, including session management, CSRF settings, and custom authentication filters.
+ * This class provides the following key functionalities:
+ * - Disables CSRF, CORS, form login, and HTTP basic authentication.
+ * - Configures stateless session management to enable microservice security.
+ * - Integrates a custom authentication filter to handle request authorization.
+ * - Configures an unauthorized response handler to return an HTTP 401 status code for unauthorized requests.
  */
 @Slf4j
 @RequiredArgsConstructor
@@ -30,9 +34,8 @@ public class SecurityConfig {
      *
      * @param http the HttpSecurity object to configure
      * @return the configured HttpSecurity object
-     * @throws Exception if an error occurs during configuration
      */
-    public SecurityFilterChain httpSecurity(HttpSecurity http) throws Exception {
+    public SecurityFilterChain httpSecurity(HttpSecurity http) {
 
         http
                 .csrf(AbstractHttpConfigurer::disable)

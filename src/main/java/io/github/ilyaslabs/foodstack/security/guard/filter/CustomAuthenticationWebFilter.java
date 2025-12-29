@@ -39,6 +39,9 @@ import java.util.stream.Stream;
  */
 public class CustomAuthenticationWebFilter extends OncePerRequestFilter {
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void doFilterInternal(@Nonnull HttpServletRequest request, @Nonnull HttpServletResponse response, @Nonnull FilterChain filterChain) throws ServletException, IOException {
 

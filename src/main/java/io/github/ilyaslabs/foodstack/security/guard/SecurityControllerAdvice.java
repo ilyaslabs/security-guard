@@ -9,8 +9,13 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 /**
- *
- * @author Muhammad Ilyas (m.ilyas@live.com)
+ * A controller advice that provides exception handling for security-related exceptions.
+ * This class centralizes the handling of exceptions, such as `AccessDeniedException`, and provides custom responses
+ * to enhance security and user experience.
+ * Key Features:
+ * - Logs security exceptions with a warning level to assist with debugging and monitoring.
+ * - Customizes HTTP responses for specific security-related exceptions, such as returning a 403 Forbidden status
+ *   for access denial scenarios.
  */
 @ControllerAdvice
 @Slf4j
