@@ -57,6 +57,12 @@ class TestSecuredAnnotation {
 
     }
 
+    @Test
+    void testIfSecuredEndpointsAreAccessibleFromInside() throws Exception {
+        mockMvc.perform(get("/secured"))
+                .andExpect(status().isOk());
+    }
+
     /**
      * Tests whether non-secured endpoints are accessible from outside without requiring any
      * specific authorization or security headers.

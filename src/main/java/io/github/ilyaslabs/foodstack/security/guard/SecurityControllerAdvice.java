@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
  * Key Features:
  * - Logs security exceptions with a warning level to assist with debugging and monitoring.
  * - Customizes HTTP responses for specific security-related exceptions, such as returning a 403 Forbidden status
- *   for access denial scenarios.
+ * for access denial scenarios.
  */
 @ControllerAdvice
 @Slf4j

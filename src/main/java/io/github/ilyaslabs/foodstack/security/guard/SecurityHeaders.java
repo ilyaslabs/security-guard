@@ -12,7 +12,7 @@ public enum SecurityHeaders {
     X_API_GATEWAY("X-API-GATEWAY"),
 
     /**
-     * Represents the scopes of the user.
+     * Represents the authorities of the user.
      */
     X_SCOPES("X-SCOPES"),
 

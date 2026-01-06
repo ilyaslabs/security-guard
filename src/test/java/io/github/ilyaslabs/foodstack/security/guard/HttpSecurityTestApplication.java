@@ -9,5 +9,5 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 @EnableHttpSecurity
-class HttpSecurityTestApplication {
+public class HttpSecurityTestApplication {
 }

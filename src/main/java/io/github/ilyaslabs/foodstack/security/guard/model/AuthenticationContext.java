@@ -14,21 +14,21 @@ import java.util.List;
  * consistent authentication and authorization information across the system.
  *
  * @param userId The unique identifier of the authenticated user.
- * @param scopes A list of authorities granted to the user for access control.
+ * @param authorities A list of authorities granted to the user for access control.
  * @param isGatewayCall A flag indicating whether the request originated from an API Gateway.
  */
 public record AuthenticationContext(
         ObjectId userId,
-        List<SimpleGrantedAuthority> scopes,
+        List<SimpleGrantedAuthority> authorities,
         Boolean isGatewayCall
 ) {
 
     /**
-     * Normalizes scopes and gateway flag for context
+     * Normalizes authorities and gateway flag for context
      */
     public AuthenticationContext {
-        if (scopes == null) {
-            scopes = List.of();
+        if (authorities == null) {
+            authorities = List.of();
         }
 
         if (isGatewayCall == null) {

@@ -28,9 +28,9 @@ import java.util.stream.Stream;
  * - Checks if the security context already contains authentication information; if present, the filter
  * chain is continued without further processing.
  * - Extracts the user ID from a custom header, {@link SecurityHeaders#X_USER_ID}, if it is present and valid.
- * - Extracts the associated security scopes from another custom header, {@link SecurityHeaders#X_SCOPES}, and converts
+ * - Extracts the associated security authorities from another custom header, {@link SecurityHeaders#X_SCOPES}, and converts
  * them into a collection of {@link SimpleGrantedAuthority}.
- * - Creates an {@link AuthenticationContext} object using the extracted user ID and scopes.
+ * - Creates an {@link AuthenticationContext} object using the extracted user ID and authorities.
  * - Sets the authentication context within the {@link SecurityContextHolder}.
  * - Continues the filter chain after successfully processing the request.
  * If the required headers are not present or valid, the filter simply delegates to the next filter in the chain
@@ -55,7 +55,7 @@ public class CustomAuthenticationWebFilter extends OncePerRequestFilter {
                 .map(ObjectId::new)
                 .orElse(null);
 
-        List<SimpleGrantedAuthority> scopeList = Optional.ofNullable(request.getHeader(SecurityHeaders.X_SCOPES.getName()))
+        List<SimpleGrantedAuthority> authorityList = Optional.ofNullable(request.getHeader(SecurityHeaders.X_SCOPES.getName()))
                 .map(scopes -> Arrays.stream(scopes.split(" "))).orElse(Stream.of(""))
                 .filter(StringUtils::hasText)
                 .map(SimpleGrantedAuthority::new)
@@ -64,9 +64,9 @@ public class CustomAuthenticationWebFilter extends OncePerRequestFilter {
         // if request contains X-API-GATEWAY header, consider it as a gateway call
         boolean isGatewayCall = request.getHeader(SecurityHeaders.X_API_GATEWAY.getName()) != null;
 
-        AuthenticationContext authenticationContext = new AuthenticationContext(userId, scopeList, isGatewayCall);
+        AuthenticationContext authenticationContext = new AuthenticationContext(userId, authorityList, isGatewayCall);
 
-        SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(authenticationContext, null, scopeList));
+        SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(authenticationContext, null, authorityList));
 
         filterChain.doFilter(request, response);
     }
