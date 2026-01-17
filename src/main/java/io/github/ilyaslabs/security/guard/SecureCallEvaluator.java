@@ -1,6 +1,6 @@
-package io.github.ilyaslabs.foodstack.security.guard;
+package io.github.ilyaslabs.security.guard;
 
-import io.github.ilyaslabs.foodstack.security.guard.model.AuthenticationContext;
+import io.github.ilyaslabs.security.guard.model.AuthenticationContext;
 import org.springframework.security.core.Authentication;
 
 /**

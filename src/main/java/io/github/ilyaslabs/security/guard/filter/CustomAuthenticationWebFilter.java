@@ -1,7 +1,7 @@
-package io.github.ilyaslabs.foodstack.security.guard.filter;
+package io.github.ilyaslabs.security.guard.filter;
 
-import io.github.ilyaslabs.foodstack.security.guard.SecurityHeaders;
-import io.github.ilyaslabs.foodstack.security.guard.model.AuthenticationContext;
+import io.github.ilyaslabs.security.guard.SecurityHeaders;
+import io.github.ilyaslabs.security.guard.model.AuthenticationContext;
 import jakarta.annotation.Nonnull;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

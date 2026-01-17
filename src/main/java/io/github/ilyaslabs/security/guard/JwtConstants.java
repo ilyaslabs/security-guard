@@ -1,4 +1,4 @@
-package io.github.ilyaslabs.foodstack.security.guard;
+package io.github.ilyaslabs.security.guard;
 
 /**
  *

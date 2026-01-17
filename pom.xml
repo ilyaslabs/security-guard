@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>io.github.ilyaslabs.foodstack</groupId>
-        <artifactId>microservice-parent</artifactId>
-        <version>phase-1-SNAPSHOT</version>
+        <groupId>io.github.ilyaslabs</groupId>
+        <artifactId>spring-boot-microservice-parent</artifactId>
+        <version>1.0.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 

@@ -1,4 +1,4 @@
-package io.github.ilyaslabs.foodstack.security.guard.annotation;
+package io.github.ilyaslabs.security.guard.annotation;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 

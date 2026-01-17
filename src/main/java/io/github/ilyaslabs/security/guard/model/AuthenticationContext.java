@@ -1,4 +1,4 @@
-package io.github.ilyaslabs.foodstack.security.guard.model;
+package io.github.ilyaslabs.security.guard.model;
 
 import org.bson.types.ObjectId;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

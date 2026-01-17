@@ -1,8 +1,8 @@
-package io.github.ilyaslabs.foodstack.security.guard.filter;
+package io.github.ilyaslabs.security.guard.filter;
 
-import io.github.ilyaslabs.foodstack.security.guard.HttpSecurityTestApplication;
-import io.github.ilyaslabs.foodstack.security.guard.SecurityHeaders;
-import io.github.ilyaslabs.foodstack.security.guard.model.AuthenticationContext;
+import io.github.ilyaslabs.security.guard.HttpSecurityTestApplication;
+import io.github.ilyaslabs.security.guard.SecurityHeaders;
+import io.github.ilyaslabs.security.guard.model.AuthenticationContext;
 import org.bson.types.ObjectId;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

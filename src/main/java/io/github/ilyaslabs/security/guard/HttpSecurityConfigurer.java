@@ -1,6 +1,6 @@
-package io.github.ilyaslabs.foodstack.security.guard;
+package io.github.ilyaslabs.security.guard;
 
-import io.github.ilyaslabs.foodstack.security.guard.filter.CustomAuthenticationWebFilter;
+import io.github.ilyaslabs.security.guard.filter.CustomAuthenticationWebFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;

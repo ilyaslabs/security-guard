@@ -1,6 +1,6 @@
-package io.github.ilyaslabs.foodstack.security.guard.annotation;
+package io.github.ilyaslabs.security.guard.annotation;
 
-import io.github.ilyaslabs.foodstack.security.guard.HttpSecurityConfigurer;
+import io.github.ilyaslabs.security.guard.HttpSecurityConfigurer;
 import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.Documented;
@@ -26,5 +26,5 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Import(HttpSecurityConfigurer.class)
-public @interface EnableHttpSecurity {
+public @interface EnableMicroserviceSecurity {
 }

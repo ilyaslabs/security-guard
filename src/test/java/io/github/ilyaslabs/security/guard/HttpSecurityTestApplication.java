@@ -1,6 +1,6 @@
-package io.github.ilyaslabs.foodstack.security.guard;
+package io.github.ilyaslabs.security.guard;
 
-import io.github.ilyaslabs.foodstack.security.guard.annotation.EnableHttpSecurity;
+import io.github.ilyaslabs.security.guard.annotation.EnableMicroserviceSecurity;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
@@ -8,6 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author Muhammad Ilyas (m.ilyas@live.com)
  */
 @SpringBootApplication
-@EnableHttpSecurity
+@EnableMicroserviceSecurity
 public class HttpSecurityTestApplication {
 }
