@@ -1,6 +1,6 @@
-package io.github.ilyaslabs.security.guard.annotation;
+package io.github.ilyaslabs.microservice.security.guard.annotation;
 
-import io.github.ilyaslabs.security.guard.HttpSecurityConfigurer;
+import io.github.ilyaslabs.microservice.security.guard.HttpSecurityConfigurer;
 import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.Documented;

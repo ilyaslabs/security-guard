@@ -1,4 +1,4 @@
-package io.github.ilyaslabs.security.guard;
+package io.github.ilyaslabs.microservice.security.guard;
 
 import io.github.ilyaslabs.microservice.exception.HttpResponseException;
 import lombok.extern.slf4j.Slf4j;

@@ -1,4 +1,4 @@
-package io.github.ilyaslabs.security.guard;
+package io.github.ilyaslabs.microservice.security.guard;
 
 /**
  * Security Headers that will be used for internal security purposes.

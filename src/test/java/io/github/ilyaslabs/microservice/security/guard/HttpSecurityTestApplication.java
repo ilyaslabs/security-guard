@@ -1,6 +1,6 @@
-package io.github.ilyaslabs.security.guard;
+package io.github.ilyaslabs.microservice.security.guard;
 
-import io.github.ilyaslabs.security.guard.annotation.EnableMicroserviceSecurity;
+import io.github.ilyaslabs.microservice.security.guard.annotation.EnableMicroserviceSecurity;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**

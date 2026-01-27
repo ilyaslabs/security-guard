@@ -1,6 +1,6 @@
-package io.github.ilyaslabs.security.guard;
+package io.github.ilyaslabs.microservice.security.guard;
 
-import io.github.ilyaslabs.security.guard.filter.CustomAuthenticationWebFilter;
+import io.github.ilyaslabs.microservice.security.guard.filter.CustomAuthenticationWebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;

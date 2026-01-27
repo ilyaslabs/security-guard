@@ -1,6 +1,6 @@
-package io.github.ilyaslabs.security.guard;
+package io.github.ilyaslabs.microservice.security.guard;
 
-import io.github.ilyaslabs.security.guard.annotation.Secured;
+import io.github.ilyaslabs.microservice.security.guard.annotation.Secured;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
