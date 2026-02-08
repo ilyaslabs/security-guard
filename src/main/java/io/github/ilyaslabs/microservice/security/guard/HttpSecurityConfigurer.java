@@ -94,4 +94,16 @@ public class HttpSecurityConfigurer {
         };
     }
 
+    /**
+     * Provides an instance of {@link AuthenticationContextProvider} to manage
+     * and retrieve the current authentication context for the application.
+     *
+     * @return an instance of {@link AuthenticationContextProvider} that integrates
+     *         with Spring Security to handle authentication context retrieval.
+     */
+    @Bean
+    public AuthenticationContextProvider authenticationContextProvider() {
+        return new SpringAuthenticationContextProvider();
+    }
+
 }

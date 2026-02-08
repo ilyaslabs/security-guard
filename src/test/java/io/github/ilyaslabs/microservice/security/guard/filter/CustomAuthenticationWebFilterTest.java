@@ -1,5 +1,6 @@
 package io.github.ilyaslabs.microservice.security.guard.filter;
 
+import io.github.ilyaslabs.microservice.security.guard.AuthenticationContextProvider;
 import io.github.ilyaslabs.microservice.security.guard.HttpSecurityTestApplication;
 import io.github.ilyaslabs.microservice.security.guard.SecurityHeaders;
 import io.github.ilyaslabs.microservice.security.guard.model.AuthenticationContext;
@@ -10,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,9 +40,15 @@ class CustomAuthenticationWebFilterTest {
 
         public static AuthenticationContext authenticationContext;
 
+        private final AuthenticationContextProvider authenticationContextProvider;
+
+        public Endpoint(AuthenticationContextProvider authenticationContextProvider) {
+            this.authenticationContextProvider = authenticationContextProvider;
+        }
+
         @GetMapping("/context")
-        public String context(@AuthenticationPrincipal AuthenticationContext context) {
-            authenticationContext = context;
+        public String context() {
+            authenticationContext = authenticationContextProvider.current();
             return "OK";
         }
 
